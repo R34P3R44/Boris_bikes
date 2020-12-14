@@ -1,5 +1,5 @@
-require 'docking_station'
+require 'station'
 
 describe Dockingstation do
-    
+
 end
