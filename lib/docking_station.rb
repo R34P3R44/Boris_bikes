@@ -1,2 +1,0 @@
-class Dockingstation
-end
