@@ -14,7 +14,7 @@ I'd like to see if a bike is working
 
 As a person,
 So that I can return a bike,
-I'd like the docking station to dock my bike
+I'd like to dock my bike.
 
 ## Diagram:
 
@@ -24,7 +24,7 @@ OBJECT          | MESSAGE   |
 ============================|
 User            |           |
 ================|===========|
-Docking station |           |
+Docking station |release_bike|
 ================|===========|
 Bike            |Is_working?|
 ================|===========|   
