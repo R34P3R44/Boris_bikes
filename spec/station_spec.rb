@@ -15,7 +15,7 @@ describe Dockingstation do
 
     it 'docks a bike' do
         bike = Bike.new
-        expect(subject.dock(bike)).to eq bike
+        expect(subject.dock(bike)).to eq [bike]
     end
 
     describe '#release_bike' do
