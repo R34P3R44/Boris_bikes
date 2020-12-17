@@ -21,8 +21,12 @@ So that Im not charged unnecessarily
 I'd like the docking stattion not to release unavailable bikes.
 
 As a system admin,
-So that I can pland the distribution of bikes,
+So that I can plan the distribution of bikes,
 I want the docking station to have a default capacity of 20 bikes.
+
+As a system admin,
+So that busy areas can be served with more bikes,
+I want to be able to add a larger capacity of bikes when needed.
 
 ## Diagram:
 
