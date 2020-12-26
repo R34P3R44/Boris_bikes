@@ -1,24 +1,17 @@
 require 'station'
 
 describe Dockingstation do
-    it 'responds to release_bike' do
-        expect(subject).to respond_to :release_bike
+ 
+    it 'docks a faulty bike' do
+        bike = double( :bike, broken?: true)
+        expect(subject.dock(bike)).to eq [bike]
     end
 
-    it 'responds to dock' do
-        expect(subject).to respond_to(:dock).with(1).argument
+    describe '#release_bike' do
+        it 'raises an error when no bikes available' do
+            expect { subject.release_bike }.to raise_error 'No bikes available'
+        end
     end
-
-    it 'responds to bike' do
-        expect(subject).to respond_to :bikes
-    end
-
-
-    # Redundant test since the bwlo test checks the same thing 20 times.
-    # it 'docks a bike' do
-    #     bike = Bike.new
-    #     expect(subject.dock(bike)).to eq [bike]
-    # end
 
     describe '#dock' do
         it 'raises an error when full' do
@@ -27,19 +20,13 @@ describe Dockingstation do
         end
     end
 
-    describe '#release_bike' do
-        it 'raises an error when no bikes available' do
-            expect { subject.release_bike }.to raise_error 'No bikes available'
-        end    
-    end
-
     it 'has a default capacity' do
         expect(subject.capacity).to eq Dockingstation::DEFAULT_CAPACITY
     end
 
     describe 'initialization' do
         subject { Dockingstation.new }
-        let(:bike) { Bike.new }
+        let(:bike) {double(:bike)}
         it 'defaults capacity' do
             described_class::DEFAULT_CAPACITY.times do
                 subject.dock(bike)
@@ -48,8 +35,7 @@ describe Dockingstation do
         end
     end
 
-
-    it 'only releases working bikes' do
+    it 'wont release broken bike(s)' do
         bike = double( :bike, broken?: true)
         subject.dock(bike)
         expect{ subject.release_bike }.to raise_error 'This bike is broken'
