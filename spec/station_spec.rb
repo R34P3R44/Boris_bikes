@@ -13,22 +13,24 @@ describe Dockingstation do
         expect(subject).to respond_to :bikes
     end
 
-    it 'docks a bike' do
-        bike = Bike.new
-        expect(subject.dock(bike)).to eq [bike]
+
+    # Redundant test since the bwlo test checks the same thing 20 times.
+    # it 'docks a bike' do
+    #     bike = Bike.new
+    #     expect(subject.dock(bike)).to eq [bike]
+    # end
+
+    describe '#dock' do
+        it 'raises an error when full' do
+            subject.capacity.times { subject.dock double :bike }
+            expect { subject.dock double(:bike) }.to raise_error 'Docking station is full'
+        end
     end
 
     describe '#release_bike' do
         it 'raises an error when no bikes available' do
             expect { subject.release_bike }.to raise_error 'No bikes available'
-        end
-    end
-
-    describe '#dock' do
-        it 'raises an error when full' do
-            subject.capacity.times { subject.dock Bike.new }
-            expect { subject.dock Bike.new }.to raise_error 'Docking station is full'
-        end
+        end    
     end
 
     it 'has a default capacity' do
