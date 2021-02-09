@@ -1,8 +1,8 @@
-#### Boris_bikes
+### Boris_bikes
 
-# This app is a mock version of the boris bikes application. It will interact with users and allow them to take and return bikes.
+##### This app is a mock version of the boris bikes application. It will interact with users and allow them to take and return bikes.
 
-## User stories:
+###### User stories:
 
 As a person,
 So that I can use a bike,
@@ -44,12 +44,12 @@ I'd like docking stations to accept returning bikes (broken or not).
 ## Diagram:
 
 
-============================|
-OBJECT          | MESSAGE   |
-============================|
-User            |           |
-================|===========|
+=============================|
+OBJECT          | MESSAGE    |
+=============================|
+User            |            |
+================|============|
 Docking station |release_bike|
-================|===========|
-Bike            |Is_working?|
-================|===========|   
+================|============|
+Bike            |Is_working? |
+================|============|   
